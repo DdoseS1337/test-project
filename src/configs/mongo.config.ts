@@ -10,8 +10,7 @@ export const getMongoConfig = async (
 	};
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const getMongoString = (configService: ConfigService) =>
+const getMongoString = (configService: ConfigService): string =>
 	'mongodb://' +
 	configService.get('MONGO_LOGIN') +
 	':' +
@@ -23,9 +22,7 @@ const getMongoString = (configService: ConfigService) =>
 	'/' +
 	configService.get('MONGO_AUTHDATABASE');
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const getMongoOptions = () => ({
+const getMongoOptions = (): any => ({
 	useNewUrlParser: true,
-	useCreateIndex: true,
 	useUnifiedTopology: true,
 });
