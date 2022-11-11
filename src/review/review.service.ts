@@ -14,14 +14,10 @@ export class ReviewService {
 	}
 
 	async delete(id: string): Promise<DocumentType<ReviewModel> | null> {
-		return this.reviewModel.findByIdAndDelete(id);
+		return this.reviewModel.findByIdAndDelete(id).exec();
 	}
 
 	async findByProductId(productId: string): Promise<DocumentType<ReviewModel>[]> {
 		return this.reviewModel.find({ productId: new Types.ObjectId(productId) }).exec();
-	}
-
-	async deletByProductId(productId: string) {
-		return this.reviewModel.deleteMany({ productId: new Types.ObjectId(productId) }).exec();
 	}
 }
